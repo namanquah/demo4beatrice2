@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>MyRide</title>
+
+        <!-- CSS  -->
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body>
+        <!--the logo and navigation bar-->
+        <div class="navbar-fixed">
+            <nav class=" deep-orange lighten-2">
+                <div class="nav-wrapper container">
+                    <div class="col s12">
+                        <a href="index.html" class="breadcrumb">HOME</a>
+                        <a href="busRide.html" class="breadcrumb">RIDER</a>
+                      
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!--body content-->
+        <div class="container">
+            <!--first to find places-->
+            <div id="nearBy">
+                <div class="row">
+                    <a class="image" href="nearestStop.html">
+
+                        <div class="col s12 ">
+                            <div class="card deep-orange accent-2">
+                                <div class="card-content white-text"> 
+                                    <span class="card-title">NearBy</span>
+                                    <p>Find nearest Bus stop</p>
+                                </div> 
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!--search for routes and buses-->
+            <div id="searchRB">
+                <div id="nearBy">
+                    <div class="row">
+                        <a class="image" href="searchRoutesStops.html">
+
+                            <div class="col s12 ">
+                                <div class="card deep-orange accent-2">
+                                    <div class="card-content white-text"> 
+                                        <span class="card-title">Search</span>
+                                        <p>Search for the bus stops and routes</p>
+                                    </div> 
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--report on an issue-->
+            <div id="report">
+                <div id="nearBy">
+                    <div class="row">
+                        <a class="image" href="#">
+
+                            <div class="col s12 ">
+                                <div class="card deep-orange accent-2">
+                                    <div class="card-content white-text"> 
+                                        <span class="card-title">Traffic and Bus Update</span>
+                                        <div>
+                                            <a class="waves-effect waves-light btn modal-trigger" href="#traffic">Update Traffic Status</a>
+                                            <a class="waves-effect waves-light btn modal-trigger" href="#busStatus">Update Bus Status</a>
+                                        </div>
+
+                                    </div> 
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Structure traffic update-->
+        <div id="traffic" class="modal">
+            <div class="modal-content">
+                <h4>Traffic Update</h4>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="textarea1BusStatus" class="materialize-textarea"></textarea>
+                                <label for="textarea1">Bus Status Update</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+            </div>
+        </div>
+
+        <!-- Modal Structure bus status update-->
+        <div id="busStatus" class="modal">
+            <div class="modal-content">
+                <h4>Bus Status Update</h4>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                                <div class="input-field col s12" >
+                                    <p>Select Bus by Name</p>
+                                    <select  class="browser-default" id="busNameId" name="BusName">
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="latestStatus" class="materialize-textarea" name="Status" length="50"></textarea>
+                                <label for="latestStatus">Bus Status Update</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input class="with-gap" name="Importance" type="radio" id ="high">
+                            <label for="high">HIGH</label>
+                            
+                            <input class="with-gap" name="Importance" type="radio" id="medium">
+                            <label for="medium">MEDIUM</label>
+                            
+                            <input class="with-gap" name="Importance" type="radio" id="low">
+                            <label for="low"> LOW</label>
+                            
+                        </div>
+                            
+                        <button class="btn waves-effect waves-light" type="submit"  onclick="add_bus_status()">UPDATE
+                                <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <a href="" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+            </div>
+        </div>
+        
+
+        <div id="mobileShow">
+            <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+                <a class="btn-floating btn-large red">
+                    <i class="large material-icons">info_outline</i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating red modal-trigger tooltipped " data-position="left" data-tooltip="Traffic Status" href="#traffic"><i class="material-icons ">insert_comment</i></a></li>
+                    <li><a class="btn-floating yellow darken-1 modal-trigger tooltipped" data-position="left" href="#busStatus" data-tooltip="Bus Status"><i class="material-icons">directions_bus</i></a></li>
+                    <li><a class="btn-floating green modal-trigger tooltipped" data-position="left"  data-tooltip="Routes"><i class="material-icons">navigation</i></a></li>
+                    <li><a class="btn-floating blue tooltipped" data-position="left" data-tooltip="Trace Bus"><i class="material-icons">create</i></a></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!--  Scripts-->
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/controller.js"></script>
+    </body>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<widget xmlns="http://www.w3.org/ns/widgets"
+		xmlns:gap ="http://phonegap.com/ns/1.0"
+                id          = "com.namanquah.MyRide"
+		versionCode ="11"
+		version ="1.0.0">
+		
+		<name> MyRide</name>
+		<description>
+			A public transit app to improve transit intelligence 
+		</description>
+		<author href="http://www.ashesi.edu.gh" email="migaliza.lyza@gmail.com">>
+			Beatrice Migaliza Lung'ahu
+		</author>
+		<icon src="images/logo.png" platform="android" width="57" height="57" density="mdpi" />
+		<gap:plugin name="cordova-plugin-whitelist" source="npm" />
+		<allow-navigation href="data:*" />
+		<allow-intent href="*" />
+		<access origin="*" />
+
+	</widget>
+	
+

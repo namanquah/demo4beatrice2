@@ -1,0 +1,210 @@
+
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+
+
+.collapsible-body ul li{
+    padding: 0.05%;
+}
+html {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+body{
+    background-color: #ffab91;
+}
+
+#login-page{
+    margin: 0 auto;
+    max-width: 30%;
+}
+
+#marqueesValues{
+    height: 5%;
+    width:100%;
+}
+
+
+
+.Hbutton{
+    color:#fff59d;
+    text-decoration: none;
+    display:inline-block;
+    padding:4px 10px;
+    height:40px;
+    top:7px;
+}
+.back.black > span {
+       display: block;
+       height: 40px;
+       width: 40px;
+     background-image: -webkit-gradient(linear, left top, right bottom, 
+              from(#7d828c),
+              color-stop(0.5, #303749), 
+              color-stop(0.5, #121a2e), 
+              to(#121a2e));
+       border-left: solid 1px rgba(79, 79, 79, 0.75);
+       border-bottom: solid 1px rgba(79, 79, 79, 0.75);
+      -webkit-transform: rotate(45deg);
+     -webkit-mask-image: -webkit-gradient(linear, left bottom, right top, 
+              from(#000000), 
+              color-stop(0.5,#000000), 
+              color-stop(0.5, transparent), 
+              to(transparent));
+       position: absolute;
+       left: -8px;
+       top: 7px;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+#navExtra ul{
+     list-style: none;
+}
+#navExtra il{
+    display: inline;
+}
+
+#mobileNavigation{
+    display: inline;
+}
+
+#extraInfo li{
+    display: inline-block;
+    padding: 10px;
+   
+
+}
+#MapCanvas{
+    margin: 0 auto;
+    height: 85%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+/*
+#footerSection{
+    height: 20px;
+}*/
+#extraInfo li a:hover {
+    background-color: #111;
+}
+html, body {
+   height: 100%;
+}
+
+#end {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#end:focus {
+  border-color: #4d90fe;
+}
+
+
+#start {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#start:focus {
+  border-color: #4d90fe;
+}
+
+#adminDashSide ul{
+    list-style-type:none;
+  
+}
+
+#adminDashSide ul li{
+    display:inline;
+}
+
+#adminDashSide ul li a{
+    text-decoration:none;
+    
+ 
+    
+}
+#collapsibleValues ul li{
+    display:inline;
+}
+#collapsibleValues ul{
+    background-color: #BDBDBD;
+    list-style-type: none;
+    //padding:0;
+   // margin:0;
+}
+#collapsibleValues ul li a{
+    display:block;
+}
+/*for mobile phones: */
+[class*="col-"]{
+    width:100%;
+}
+
+@media only screen and (min-width: 768px){
+    /*for desktop: */
+    .col-1{width: 8.33%;}
+    .col-2{width: 16.66%;}
+    .col-3{width: 25%;}
+    .col-4{width: 33.33%;}
+    .col-5{width: 41.66%;}
+    .col-6{width: 50%;}
+    .col-7{width: 58.33%;}
+    .col-8{width: 66.66%;}
+    .col-9{width: 75%;}
+    .col-10{width: 83.33%;}
+    .col-11{width: 91.66%;}
+    .col-12{width: 100%;}
+}
+
+@media only screen and (min-width: 600px){
+    /* for tables: */
+    .col-m-1{width: 8.33%;}
+    .col-m-2{width: 16.66%;}
+    .col-m-3{width: 25%;}
+    .col-m-4{width: 33.33%;}
+    .col-m-5{width: 41.66%;}
+    .col-m-6{width: 50%;}
+    .col-m-7{width: 58.33%;}
+    .col-m-8{width: 66.66%;}
+    .col-m-9{width: 75%;}
+    .col-m-10{width: 83.33%;}
+    .col-m-11{width: 91.66%;}
+    .col-m-12{width: 100%;}
+    
+}
+
+
+ header, main, footer {
+      padding-left: 240px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }

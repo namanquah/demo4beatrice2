@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>MyRide</title>
+
+        <!-- CSS  -->
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    </head>
+    <body >
+        <div class="navbar-fixed">
+            <ul id="dropdown1" calss="dropdown-content">
+                <li><a href="nearestStop.html">Bus Stops</a></li>
+                <li class="divider"></li>
+                <li><a href="searchRoutesStops.html">Bus & Traffic Status</a></li>
+            </ul>
+            <nav class="deep-orange lighten-2">
+                <div class="nav-wrapper container">
+                    <a id="logo-container" href="#!" class="brand-logo">MyRide</a>
+
+                    <ul class="right hide-on-med-and-down">
+                        <li> <a href="index.html">Home</a></li>
+                        <li><a href="adminLogin.html">Management</a></li>
+                        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Bus Rider<i class="material-icons right">arrow_drop_down</i></a></li>
+                    </ul>
+                    <!--mobile div-->
+                    <div id="nav-mobile" class="side-nav">
+                        <ul >
+                            <li><a href="#">Home</a></li>
+                            <li><a href="adminLogin.html">Management</a></li> 
+                            <li class="no-padding">
+                                <ul class="collapsible collapsible-accordion">
+                                    <li>
+                                        <a class="collapsible-header">Bus Rider<i class="mdi-navigation-arrow-drop-down"></i></a>
+                                        <ul>
+                                            <li><a href="nearestStop.html">Bus Stops</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="searchRoutesStops.html">Bus & Traffic Status</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="#" data-activates="nav-mobile" class="button-collapse left"><i class="material-icons">menu</i> </a>
+                </div>
+            </nav>
+        </div>
+
+
+        <!--search box-->
+
+        <div><input id="start" class="controls" type="text" placeholder="Type starting point"></div>
+        <div><input id="end" class="controls" type="text" placeholder="Type Destination"></div>
+        <input type="button" id="trafficstatus"  value="TRAFFIC STATUS">
+        <div id="MapCanvas" class="center" > </div>
+        <div id="marqueesValues"><marquee></marquee></div>
+        
+        <!-- Modal Structure bus status update-->
+        <div id="trafficJam" class="modal">
+            <div class="modal-content">
+                <h4>Traffic Jam</h4>
+                <div class="row">
+                    <form class="col s12">
+                       <div class="row">
+                           <input class="with-gap" name="level_of_traffic"  type="radio" id="heavy"/>
+                            <label for="heavy">HEAVY</label>
+                            
+                            <input class="with-gap" name="level_of_traffic" type="radio" id="moderate"/>
+                            <label for="moderate">MODERATE</label>
+                            
+                            <input class="with-gap" name="level_of_traffic" type="radio" id="standstill"/>
+                            <label for="standstill"> STANDSTILL</label>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="textarea1Jam" class="materialize-textarea" name="jam_statement" length="50"></textarea>
+                                <label for="textarea1Jam">Share details </label>
+                            </div>
+                        </div>
+                        
+                            
+                        <button class="btn waves-effect waves-light" type="submit"  onclick="trafficStatus();">UPDATE
+                                <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <a href="" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+            </div>
+        </div>
+        
+        <!-- Modal Structure bus status update-->
+        <div id="busStatus" class="modal">
+            <div class="modal-content">
+                <h4>Bus Status Update</h4>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                                <div class="input-field col s12" >
+                                    <p>Select Bus by Name</p>
+                                    <select  class="browser-default" id="busNameId" name="BusName">
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="latestStatus" class="materialize-textarea" name="Status" length="50"></textarea>
+                                <label for="latestStatus">Bus Status Update</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input class="with-gap" name="Importance" type="radio" id ="high">
+                            <label for="high">HIGH</label>
+                            
+                            <input class="with-gap" name="Importance" type="radio" id="medium">
+                            <label for="medium">MEDIUM</label>
+                            
+                            <input class="with-gap" name="Importance" type="radio" id="low">
+                            <label for="low"> LOW</label>
+                            
+                        </div>
+                            
+                        <button class="btn waves-effect waves-light" type="submit"  onclick="add_bus_status()">UPDATE
+                                <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <a href="" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+            </div>
+        </div>
+        
+        <!-- Modal Structure bus status update-->
+        <div id="AccidentModal" class="modal">
+            <div class="modal-content">
+                <h4>Accident</h4>
+                <div class="row">
+                    <form class="col s12">
+                       <div class="row">
+                           
+                           <input class="with-gap" name="accidentLevel" type="radio" id ="minorA" />
+                            <label for="minorA">MINOR</label>
+                            
+                            <input class="with-gap" name="accidentLevel" type="radio" id="majorA" />
+                            <label for="majorA">MAJOR</label>
+                            
+  
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="textarea1Accident" class="materialize-textarea" name="Update_Statement" length="50"></textarea>
+                                <label for="textarea1Accident">Share details </label>
+                            </div>
+                        </div>
+                        
+                            
+                        <button class="btn waves-effect waves-light" type="submit"  onclick="accidentStatus();">UPDATE
+                                <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <a href="" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+            </div>
+        </div>
+        
+        <div id="mobileShow">
+            <div class="fixed-action-btn " style="bottom: 45px; right: 24px;">
+                <a class="btn-floating btn-large red" data-tooltip="Report on Traffic" >
+                    <i class="large material-icons">info_outline</i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating red modal-trigger tooltipped " data-position="left" data-tooltip="REPORT ON ACCIDENT" href="#AccidentModal"><i class="material-icons">warning</i></a></li>
+                    <li><a class="btn-floating yellow darken-1 modal-trigger tooltipped" data-position="left" href="#trafficJam" data-tooltip="REPORT ON TRAFFIC JAM"><i class="material-icons">directions_car</i></a></li>
+                    <li><a class="btn-floating red modal-trigger tooltipped " data-position="left" data-tooltip="UPDATE BUS STATUS" href="#busStatus"><i class="material-icons ">insert_comment</i></a></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <!--  Scripts-->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfMvZQEeSmLPAXBUaRcjS4gfK43F9vucY&libraries&libraries=places" async defer></script>
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/controller.js"></script>
+        <script src="js/GMap.js"></script>
+    </body>
+</html>

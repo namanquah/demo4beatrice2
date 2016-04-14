@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>MyRide Login</title>
+
+        <!-- CSS  -->
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body>
+        <!--the logo and navigation bar-->
+        <div class="navbar-fixed">
+            <nav class=" deep-orange lighten-2">
+                <div class="nav-wrapper container">
+                    <div class="col s12">
+                            <a href="index.html" class="breadcrumb">HOME</a>
+                            <a href="adminLogin.html" class="breadcrumb">MyRide Login</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div id="login-page" class="row">
+            <div class="col s12 m12 l12 card-panel">
+                <form class="login-form" method="POST">
+                    <div class="row">
+                        <div class="input-field col s12 center">
+                            <img src="images/logo.png" alt="" class="responsive-img valign profile-image-login" height="180" width="180">
+                            <p class="center login-form-text"> Intelligence Transit System in Ghana</p>
+                        </div>
+                    </div>
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            <input class="validate" id="email" type="email" name="email">
+                            <label for="email" data-error="wrong" data-success="right" class="center-align">Email</label>
+                        </div>
+                    </div>
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <i class="mdi-action-lock-outline prefix"></i>
+                            <input id="password" type="password" name="Assigned_Pass">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">         
+                        <div class="input-field col s12 m12 l12  login-text">
+                            <input type="checkbox" id="remember-me" />
+                            <label for="remember-me">Remember me</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button class="btn waves-effect waves-light" type="submit"  onclick="managementLogin()">Login
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6 m6 l6">
+                            <p class="margin medium-small"><a href="registerCompany.html">Register Now!</a></p>
+                        </div>
+                        <div class="input-field col s6 m6 l6">
+                            <p class="margin right-align medium-small"><a href="forgotPassword.html">Forgot password?</a></p>
+                        </div>         
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/controller.js"></script>
+        <script src="js/GMap.js"></script>
+        
+    </body>
+</html>

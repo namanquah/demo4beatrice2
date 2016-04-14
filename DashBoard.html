@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>MyRide</title>
+
+        <!-- CSS  -->
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    </head>
+    <body >
+        <header>
+            <nav class="top-nav">
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a class="page-title">MyRide Bus Management</a>
+                        <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons">menu</i></a>
+                    </div>
+                </div>
+            </nav>
+
+
+            <ul id="nav-mobile" class="side-nav fixed " style="overflow:auto;left:0px; padding:0.5%">
+                <!--<li class="logo"><a id="logo-container" href="#" class="brand-logo"> Add Company Logo</a></li>-->
+                <li><img src="images/logo.png" alt="" id="logo-container" class="brand-logo" height="180" width="180"></li>
+                <li class="divider"></li>
+
+                <li class="bold"><a href="index.html" class="waves-effect waves-teal">Home</a></li>
+                <li class="divider"></li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Bus</a>
+                            <div class="collapsible-body">
+                                <ul style="padding-bottom: 5px; padding-top: 5px">
+                                    <li> <a  href="#"><i class="material-icons">info_outline</i>Bus Info</a></li>
+                                    <li><a  href="#modalBus" class="modal-trigger"><i class="material-icons  ">add_box</i>Add a Bus</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Driver</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a  href="#"><i class="material-icons">info_outline</i>Driver Info</a></li>
+                                    <li><a  href="#addDriverModal" class="modal-trigger"><i class="material-icons">add_box</i>Add Driver</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="bold"><a class="collapsible-header active waves-effect waves-teal">Bus Stops</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a  href="#"><i class="material-icons">info_outline</i>Bus Stops info</a></li>
+                                    <li><a  href="#addDBusStop" class="modal-trigger"><i class="material-icons">add_box</i>Add a Bus Stop</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="bold"><a class="collapsible-header active waves-effect waves-teal">GPS Device</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a  href="#"><i class="material-icons">info_outline</i>GPS Device Info</a></li>
+                                    <li><a  href="#addGPSDevice" class="modal-trigger"><i class="material-icons">add_box</i>Add GPS Device</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="divider"></li>
+                        <li class="bold"><a class="collapsible-header active waves-effect waves-teal">Route</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a  href="#"><i class="material-icons">info_outline</i>Route InfoInfo</a></li>
+                                    <li><a  href="#addRoute" class="modal-trigger"><i class="material-icons">add_box</i>Add route</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <main>
+
+            <!--add GPS device modal -->
+            <div id="addGPSDevice" class="modal">
+                <div class="modal-content">
+                    <h4>Add a GPS Device</h4>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input  id="Device_Id" type="text" name="Device_Id">
+                                    <label for="Driver_ID">Device ID</label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">mode_edit</i>
+                                    <textarea id="Description" name="Description" class="materialize-textarea"></textarea>
+                                    <label for="Description">Device Description</label>
+                                </div>
+                            </div>
+                            <button class="btn waves-effect waves-light" type="submit"  onclick="addNewGPSDevice()">ADD
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button  class=" btn btn-small modal-action red modal-close waves-effect " type="button" name="action">CANCEL</button>
+
+                </div>
+            </div>
+            
+            
+            <!-- Add route modal -->
+            <div id="addRoute" class="modal">
+                <div class="modal-content">
+                    <h4>Add new Route</h4>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input  id="Route_Code" type="text" name="Route_Code">
+                                    <label for="Route_Code">Route Code</label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="input-field col m6 s12">
+                                    <input  id="StartRoute_longitude" type="text" name="StartRoute_longitude">
+                                    <label for="longitude">Start Longitude</label>
+                                </div>
+
+                                <div class="input-field col m6 s12">
+                                    <input id="StartRoute_Latitude" type="text" name="StartRoute_Latitude">
+                                    <label for="latitude">Start Latitude</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col m6 s12">
+                                    <input  id="EndLongitude" type="text" name="EndLongitude">
+                                    <label for="EndLongitude">End Longitude</label>
+                                </div>
+
+                                <div class="input-field col m6 s12">
+                                    <input id="EndLatitude" type="text" name="EndLatitude">
+                                    <label for="Endlatitude">End Latitude</label>
+                                </div>
+                            </div>
+                            <button class="btn waves-effect waves-light" type="submit"  onclick="addRoute()">ADD
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button  class=" btn btn-small modal-action red modal-close waves-effect " type="button" name="action">CANCEL</button>
+                </div>
+            </div>
+
+            <!-- Add bus stop modal -->
+            <div id="addDBusStop" class="modal">
+                <div class="modal-content">
+                    <h4>Add new Bus Stop</h4>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input  id="Bus_Stop_Name" type="text" name="Bus_Stop_Name">
+                                    <label for="Driver_ID">Bus Stop Name</label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="input-field col m6 s12">
+                                    <input  id="longitude" type="text" name="Longitude">
+                                    <label for="longitude">Longitude</label>
+                                </div>
+
+                                <div class="input-field col m6 s12">
+                                    <input id="latitude" type="text" name="Latitude">
+                                    <label for="latitude">Latitude</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12" >
+                                    
+                                    <select  class="browser-default" id="routecode" name="RouteId">
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="btn waves-effect waves-light" type="submit"  onclick="addBusStop()">ADD
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button  class=" btn btn-small modal-action red modal-close waves-effect " type="button" name="action">CANCEL</button>
+                </div>
+            </div>
+
+            <!-- Add a driver modal -->
+            <div id="addDriverModal" class="modal">
+                <div class="modal-content">
+                    <h4>Add a new Driver</h4>
+                    <div class="row">
+                        <form class="col s12" method="GET">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input  id="driverID" type="text" name="DriverId">
+                                    <label for="Driver_ID">Driver ID</label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="input-field col m6 s12">
+                                    <input  id="firstName" type="text" name="firstName">
+                                    <label for="FirstName">First Name</label>
+                                </div>
+
+                                <div class="input-field col m6 s12">
+                                    <input id="lastName" type="text" name="lastName">
+                                    <label for="LastName">Last Name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="text"  id="assignedBusId" name="AssignedBus_ID">
+                                    <label for="assignedBusId">Assigned Bus ID</label>
+                                </div>
+                            </div>
+                            <button class="btn waves-effect waves-light" type="submit"  onclick="adddriver()">ADD
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">     
+
+                        <button class="btn btn-small modal-close red waves-effect waves-light" type="button" name="action">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Add a bus modal -->
+            <div id="modalBus" class="modal">
+                <div class="modal-content">
+                    <h4>Add a new Bus</h4>
+                    <div class="row">
+                        <form class="col s12" method="POST">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input  id="Busid" type="text" name="Bus_id">
+                                    <label for="Bus_id">Bus ID</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input  id="BusName" type="text" name="Bus_Name">
+                                    <label for="Bus_Name">Bus Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input  id="number_of_seats" type="text" name="Number_of_seats">
+                                    <label for="number_of_seats">Number of Seats</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input  id="GPSDevice_ID" type="text" name="GPSDevice_ID">
+                                    <label for="GPSDevice_ID">GPS Device ID</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input  id="Bus_DriverId" type="text" name="Bus_DriverId">
+                                    <label for="Bus_DriverId">Bus Driver ID</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input  id="Bus_RouteCode" type="text" name="Bus_RouteCode">
+                                    <label for="Bus_RouteCode">Bus Route Code</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input  id="Bus_Agency" type="text" name="Bus_Agency">
+                                    <label for="Bus_Agency">Bus_Agency</label>
+                                </div>
+                            </div>
+                            <button class="btn waves-effect waves-light" type="submit" name="action" onclick="addBus()">ADD
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button  class=" btn btn-small modal-action red modal-close waves-effect " type="button" name="action">CANCEL</button>
+                  
+                </div>
+            </div>
+
+
+            <!-- Edit the values->
+            <!-- Add bus stop modal -->
+            <div id="editBusStop" class="modal">
+                <div class="modal-content">
+                    <h4>Add new Bus Stop</h4>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input  id="Bus_Stop_Name" type="text" name="Bus_Stop_Name">
+                                    <label for="Driver_ID">Bus Stop Name</label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="input-field col m6 s12">
+                                    <input  id="longitude" type="text" name="longitude">
+                                    <label for="longitude">Longitude</label>
+                                </div>
+
+                                <div class="input-field col m6 s12">
+                                    <input id="latitude" type="text" name="latitude">
+                                    <label for="latitude">Latitude</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="text" id="RouteId" name="RouteId">
+                                    <label for="routeId">Route Code</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <ul>
+                        <li> <button class="btn btn-small waves-effect  waves-light modal-close " type="button" name="action">ADD</button></li>
+                        <li><button  class=" btn btn-small modal-action red modal-close waves-effect " type="button" name="action">CANCEL</button></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Add a driver modal -->
+            <div id="editDriver" class="modal">
+                <div class="modal-content">
+                    <h4>Add a new Bus</h4>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input  id="driverID" type="text" name="DriverId">
+                                    <label for="Driver_ID">Driver ID</label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="input-field col m6 s12">
+                                    <input  id="firstName" type="text" name="FirstName">
+                                    <label for="FirstName">First Name</label>
+                                </div>
+
+                                <div class="input-field col m6 s12">
+                                    <input id="lastName" type="text" name="LastName">
+                                    <label for="LastName">Last Name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="date" class="datepicker" name="dateofBirth">
+                                    <label for="yearofbirth">Birth Date</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">     
+                        <ul>
+                            <li><button class="btn btn-small modal-close waves-effect waves-light" type="button" name="action">ADD</button></li>
+                            <li><button class="btn btn-small modal-close red waves-effect waves-light" type="button" name="action">CANCEL</button></li>
+                        </ul> 
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Add a bus modal -->
+            <div id="EditBus" class="modal">
+                <div class="modal-content">
+                    <h4>Add a new Bus</h4>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input  id="Busid" type="text" name="Bus_id">
+                                    <label for="Bus_id">Bus ID</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input  id="BusName" type="text" name="Bus_Name">
+                                    <label for="Bus_id">Bus Name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6" id="gpsIdSelect">
+                                    <!--<input  id="GPSDevice_ID" type="text" name="GPSDevice_ID">
+                                    <label for="GPSDevice_ID">GPS Device ID</label>-->
+                                </div>
+                                <div class="input-field col s6">
+                                    <input  id="Bus_DriverId" type="text" name="Bus_DriverId">
+                                    <label for="Bus_DriverId">Bus Driver ID</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input  id="Bus_RouteCode" type="text" name="Bus_RouteCode">
+                                    <label for="Bus_RouteCode">Bus Route Code</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input  id="Bus_Agency" type="text" name="Bus_Agency">
+                                    <label for="Bus_Agency">Bus_Agency</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <ul>
+                        <li><button class="btn btn-small waves-effect waves-light modal-close " type="button" name="action">ADD</button></li>
+                        <li><button  class=" btn btn-small modal-action red modal-close waves-effect " type="button" name="action">CANCEL</button></li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/controller.js"></script>
+
+    </body>
+</html>
